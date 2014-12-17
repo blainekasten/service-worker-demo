@@ -9,6 +9,18 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js', {
+          scope: '/' // tells the service worker what pages it controls, e.g. anything inside of `/`
+        }).then(function(reg) {
+          console.log('Yey!', reg);
+        }).catch(function(err) {
+          console.log('Boo!', err);
+        });
+      }
+    </script>
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
