@@ -35,6 +35,8 @@
 
           <p>This site's goal is to be a working demo of what can be done with service worker. </p>
 
+          <div class="button">This requires jquery</div>
+
         </section>
       </div>
     </div>
@@ -50,6 +52,10 @@
           console.log('Boo!', err);
         });
       }
+
+      $('.button').click(function(){
+        $(this).toggle('toggled')
+      });
     </script>
 
   </body>

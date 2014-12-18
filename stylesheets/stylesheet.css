@@ -6,14 +6,18 @@
  *    user zoom.
  */
 
-.cache-informant:before {
-  content: 'This website will not work offline, sorry';
+.button {
   background: lightblue;
   padding: 1em;
   text-align: center;
   width: 100%;
   position: absolute;
 }
+
+.button.toggled {
+  background: yellow;
+}
+
 
 
 html {

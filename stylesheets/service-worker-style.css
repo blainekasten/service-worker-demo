@@ -1,9 +1,0 @@
-
-.cache-informant:before {
-  content: 'Go offline, we\'ll still be here!'
-  background: yellow;
-  padding: 1em;
-  text-align: center;
-  width: 100%;
-  position: absolute;
-}
