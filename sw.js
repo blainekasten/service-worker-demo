@@ -1,18 +1,18 @@
 console.log('starting service worker!');
 // imports scripts locally or even from other sources
-importScripts('./javascripts/cache-polyfill');
+//importScripts('./javascripts/cache-polyfill');
 
 
-//// these are pages we are going to cache, so they can work offline
-var urlsToCache = [
-  './index.html',
-  './stylessheets/stylesheet.css',
-  './stylessheets/pygment_trac.css',
-  './stylessheets/service-worker-style.css',
-  './javascripts/main.js'
-];
+////// these are pages we are going to cache, so they can work offline
+//var urlsToCache = [
+  //'./index.html',
+  //'./stylessheets/stylesheet.css',
+  //'./stylessheets/pygment_trac.css',
+  //'./stylessheets/service-worker-style.css',
+  //'./javascripts/main.js'
+//];
 
-var CACHE_NAME = 'my-site-cache-v1';
+//var CACHE_NAME = 'my-site-cache-v1';
 
 
 //// this is called during the install 
