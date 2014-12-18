@@ -17,11 +17,9 @@ var CACHE_NAME = 'my-site-cache-v2';
 
 //// this is called during the install 
 this.addEventListener('install', function(event) {
-  console.log('opening cache');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
-        console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
   );
@@ -32,6 +30,21 @@ this.addEventListener('install', function(event) {
  //////after service worker is installed, we can fetch our cached assets
 this.addEventListener('fetch', function(event) {
   console.log('fetch responses!!!!')
+  var responseBody = {
+    success: 'yeah'
+  }
+
+  var blobResponseBody = new Blob([JSON.stringify(responseBody)]);
+
+  var responseInit = {
+    status: 200,
+    statusText: 'OK',
+    headers: {'Content-Type': 'application/json'}
+  }
+
+  var mockResponse = new Response(blobResponseBody, responseInit);
+
+  event.respondWith(mockResponse);
 });
   //event.respondWith(
     //caches.match(event.request).then(function(response) {
