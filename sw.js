@@ -15,30 +15,32 @@ var urlsToCache = [
 
 var CACHE_NAME = 'my-site-cache-v3';
 
-//// this is called during the install 
+// this is called during the install 
 this.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(urlsToCache);
+    caches.create(CACHE_NAME).then(function(cache) {
+      return cache.add(
+        './index.html',
+        './stylesheets/stylesheet.css',
+        './stylesheets/pygment_trac.css',
+        './stylesheets/service-worker-style.css',
+        './javascripts/main.js'
+      );
     })
   );
 });
 
 
 
- //////after service worker is installed, we can fetch our cached assets
-//this.addEventListener('fetch', function(event) {
-  //event.respondWith(
-    //caches.match(event.request).then(function(response) {
-      //// Cache hit - return response
-      //if (response) {
-        //return response;
-      //}
+//after service worker is installed, we can fetch our cached assets
+this.addEventListener('fetch', function(event) {
+  var cachedResponse = caches.match(event.request).catch(function() {
+    return event.default().then(function(response) {
+      return caches.get(CACHE_NAME).then(function(cache) {
+        cache.put(event.request, response.clone());
+        return response;
+      });  
+    });
 
-      //console.log(response, event);
-
-      //return fetch(event.request);
-    //});
-  //);
-//});
-
+  event.respondWith(cachedResponse);
+});
