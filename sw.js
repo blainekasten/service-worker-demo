@@ -21,7 +21,22 @@ self.oninstall = function(event) {
 };
 
 
-self.onactivate = function(event) {}
+self.onactivate = function(event) {
+  var cacheWhitelist = ['v1'];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+
+}
 
 //after service worker is installed, we can fetch our cached assets
 self.onfetch = function(event) {
