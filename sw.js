@@ -6,7 +6,7 @@ importScripts('./javascripts/cache-polyfill.js');
 var CACHE_NAME = 'v1';
 
 // this is called during the install 
-self.oninstall = function(event) {
+self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.create(CACHE_NAME).then(function(cache) {
       return cache.add(
@@ -18,16 +18,17 @@ self.oninstall = function(event) {
       );
     })
   );
-};
+});
 
 
-self.onactivate = function(event) {
-  var cacheWhitelist = ['v1'];
+self.addEventListener('activate', function(event) {
+  var cacheWhitelist = [CACHE_NAME];
 
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
+          console.log('cache found: ', cacheName);
           if (cacheWhitelist.indexOf(cacheName) === -1) {
             return caches.delete(cacheName);
           }
@@ -35,12 +36,11 @@ self.onactivate = function(event) {
       );
     })
   );
-
-}
+});
 
 //after service worker is installed, we can fetch our cached assets
-self.onfetch = function(event) {
+self.addEventListener('fetch', function(event) {
   event.respondWith( caches.match(event.request) );
-};
+});
 
 console.log('service worker finished')
