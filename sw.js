@@ -15,17 +15,19 @@ var urlsToCache = [
 
 var CACHE_NAME = 'my-site-cache-v1';
 
+console.log(this, self);
 
 //// this is called during the install 
-//this.addEventListener('install', function(event) {
-  //event.waitUntil(
-    //caches.open(CACHE_NAME)
-      //.then(function(cache) {
-        //console.log('Opened cache');
-        //return cache.addAll(urlsToCache);
-      //})
-  //);
-//});
+this.addEventListener('install', function(event) {
+  console.log('opening cache');
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
 
 
 
