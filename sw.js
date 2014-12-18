@@ -29,39 +29,15 @@ this.addEventListener('install', function(event) {
 
  //////after service worker is installed, we can fetch our cached assets
 this.addEventListener('fetch', function(event) {
-  var requestUrl = new URL(event.request.url);
-  console.log(requestUrl.pathname)
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      // Cache hit - return response
+      if (response) {
+        return response;
+      }
 
-  if (requestUrl.pathname != '/service-worker-demo/v1/test') return;
-
-  console.log('fetch responses!!!!')
-  var responseBody = {
-    success: 'yeah'
-  }
-
-  var blobResponseBody = new Blob([JSON.stringify(responseBody)]);
-
-  var responseInit = {
-    status: 200,
-    statusText: 'OK',
-    headers: {'Content-Type': 'application/json'}
-  }
-
-  var mockResponse = new Response(blobResponseBody, responseInit);
-
-  event.respondWith(mockResponse);
+      return fetch(event.request);
+    });
+  );
 });
-  //event.respondWith(
-    //caches.match(event.request).then(function(response) {
-      //// Cache hit - return response
-      //if (response) {
-        //return response;
-      //}
-
-      //console.log(response);
-
-      //return fetch(event.request);
-    //});
-  //);
-//});
 
