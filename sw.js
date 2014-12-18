@@ -10,11 +10,11 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
       return cache.add(
-        './index.html',
-        './stylesheets/stylesheet.css',
-        './stylesheets/pygment_trac.css',
-        './stylesheets/service-worker-style.css',
-        './javascripts/main.js'
+        '/index.html',
+        '/stylesheets/stylesheet.css',
+        '/stylesheets/pygment_trac.css',
+        '/stylesheets/service-worker-style.css',
+        '/javascripts/main.js'
       );
     })
   );
@@ -40,7 +40,15 @@ self.addEventListener('activate', function(event) {
 
 //after service worker is installed, we can fetch our cached assets
 self.addEventListener('fetch', function(event) {
-  event.respondWith( caches.match(event.request) );
+  console.log('fetch event!', event)
+  event.respondWith( 
+    caches.match(event.request).then(function(response) {
+      if (response) return response;
+
+      // add to cache at this point then?
+      return fetch(event.request);
+    });
+  );
 });
 
 console.log('service worker finished')
