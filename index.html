@@ -12,9 +12,7 @@
 
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js', {
-          scope: '/' // tells the service worker what pages it controls, e.g. anything inside of `/`
-        }).then(function(reg) {
+        navigator.serviceWorker.register('/sw.js').then(function(reg) {
           console.log('Yey!', reg);
         }).catch(function(err) {
           console.log('Boo!', err);
