@@ -34,11 +34,12 @@ this.addEventListener('install', function(event) {
 
 //after service worker is installed, we can fetch our cached assets
 this.addEventListener('fetch', function(event) {
+  console.log(event);
 
-  event.respondWith(
-    caches.match(event.request).catch(function(){
-      return new Response("well crap");
-    });
-  );
+  event.respondWith( new Response("well crap") )
+    //caches.match(event.request).catch(function(){
+      //return new Response("well crap");
+    //});
+  //);
 
 });
