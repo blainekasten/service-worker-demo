@@ -13,9 +13,7 @@ var urlsToCache = [
   './javascripts/main.js'
 ];
 
-var CACHE_NAME = 'my-site-cache-v1';
-
-console.log(this, self);
+var CACHE_NAME = 'my-site-cache-v2';
 
 //// this is called during the install 
 this.addEventListener('install', function(event) {
