@@ -35,8 +35,6 @@
 
           <p>This site's goal is to be a working demo of what can be done with service worker. </p>
 
-          <button class='test'>Test if we're running off of service worker</button>
-          <!--<div class='cache-informant'></div>-->
         </section>
       </div>
     </div>
@@ -52,19 +50,6 @@
           console.log('Boo!', err);
         });
       }
-
-      $('button').click(function(){
-        $.ajax({
-          url: '/service-worker-demo/v1/test',
-          type: 'POST',
-          success: function(e){
-            console.log('service worker response: ', e);
-          },
-          error: function(e) {
-            console.log('something failed..', e);
-          }
-        })
-      });
     </script>
 
   </body>

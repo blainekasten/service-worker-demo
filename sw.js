@@ -13,7 +13,7 @@ var urlsToCache = [
   './javascripts/main.js'
 ];
 
-var CACHE_NAME = 'my-site-cache-v2';
+var CACHE_NAME = 'my-site-cache-v3';
 
 //// this is called during the install 
 this.addEventListener('install', function(event) {
@@ -29,6 +29,7 @@ this.addEventListener('install', function(event) {
 
  //////after service worker is installed, we can fetch our cached assets
 this.addEventListener('fetch', function(event) {
+  console.log(event);
   event.respondWith(
     caches.match(event.request).then(function(response) {
       // Cache hit - return response
