@@ -1,4 +1,3 @@
-console.log('starting service worker!');
 // imports scripts locally or even from other sources
 importScripts('./javascripts/cache-polyfill.js');
 
@@ -14,6 +13,7 @@ self.addEventListener('install', function(event) {
         '/stylesheets/stylesheet.css',
         '/stylesheets/pygment_trac.css',
         '/stylesheets/service-worker-style.css',
+        '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
         '/javascripts/main.js'
       );
     })
@@ -21,6 +21,10 @@ self.addEventListener('install', function(event) {
 });
 
 
+/*
+ * in our activate, we make sure everything is as we want it. from my understanding
+ * so we clear out other caches that aren't wanted
+ */
 self.addEventListener('activate', function(event) {
   var cacheWhitelist = [CACHE_NAME];
 
@@ -40,8 +44,6 @@ self.addEventListener('activate', function(event) {
 
 //after service worker is installed, we can fetch our cached assets
 self.addEventListener('fetch', function(event) {
-  console.log('fetch event!')
-  console.log(event);
   event.respondWith( 
     caches.match(event.request).then(function(response) {
       if (response) return response;
@@ -51,5 +53,3 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
-
-console.log('service worker finished')
