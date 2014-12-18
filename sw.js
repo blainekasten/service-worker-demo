@@ -8,7 +8,7 @@ var CACHE_NAME = 'v1';
 // this is called during the install 
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.create(CACHE_NAME).then(function(cache) {
+    caches.open(CACHE_NAME).then(function(cache) {
       return cache.add(
         './index.html',
         './stylesheets/stylesheet.css',
