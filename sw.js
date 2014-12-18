@@ -15,7 +15,7 @@ var CACHE_NAME = 'my-site-cache-v1';
 
 
 // this is called during the install 
-self.addEventListener('install', function(event) {
+this.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
@@ -27,8 +27,8 @@ self.addEventListener('install', function(event) {
 
 
 
-// after service worker is installed, we can fetch our cached assets
-self.addEventListener('fetch', function(event) {
+ //after service worker is installed, we can fetch our cached assets
+this.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
