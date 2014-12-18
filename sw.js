@@ -1,31 +1,28 @@
-console.log('starting service worker!')
-
 // imports scripts locally or even from other sources
 importScripts('./javascripts/cache-polyfill');
 
 
 //// these are pages we are going to cache, so they can work offline
-//var urlsToCache = [
-  //'/index.html',
-  //'/stylessheets/stylesheet.css',
-  //'/stylessheets/pygment_trac.css',
-  //'/javascripts/main.js'
-//];
+var urlsToCache = [
+  './index.html',
+  './stylessheets/stylesheet.css',
+  './stylessheets/pygment_trac.css',
+  './javascripts/main.js'
+];
 
-//var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'my-site-cache-v1';
 
 
 //// this is called during the install 
-//this.addEventListener('install', function(event) {
-  //console.log('installing phase!!')
-  //event.waitUntil(
-    //caches.open(CACHE_NAME)
-      //.then(function(cache) {
-        //console.log('Opened cache');
-        //return cache.addAll(urlsToCache);
-      //})
-  //);
-//});
+this.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
 
 
 
