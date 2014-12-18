@@ -7,6 +7,7 @@ var urlsToCache = [
   './index.html',
   './stylessheets/stylesheet.css',
   './stylessheets/pygment_trac.css',
+  './stylessheets/service-worker-style.css',
   './javascripts/main.js'
 ];
 
