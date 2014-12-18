@@ -1,7 +1,6 @@
 
 // imports scripts locally or even from other sources
 importScripts('./javascripts/cache-polyfill');
-importScripts('//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');
 
 
 // these are pages we are going to cache, so they can work offline
