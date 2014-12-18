@@ -7,9 +7,9 @@ console.log('imported cache')
 ////// these are pages we are going to cache, so they can work offline
 var urlsToCache = [
   './index.html',
-  './stylessheets/stylesheet.css',
-  './stylessheets/pygment_trac.css',
-  './stylessheets/service-worker-style.css',
+  './stylesheets/stylesheet.css',
+  './stylesheets/pygment_trac.css',
+  './stylesheets/service-worker-style.css',
   './javascripts/main.js'
 ];
 
