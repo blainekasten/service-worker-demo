@@ -1,7 +1,7 @@
 console.log('starting service worker!');
 // imports scripts locally or even from other sources
 importScripts('./javascripts/cache-polyfill');
-console.log('imported script');
+console.log(caches);
 
 
 ////// these are pages we are going to cache, so they can work offline
