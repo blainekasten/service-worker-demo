@@ -48,7 +48,7 @@ self.addEventListener('fetch', function(event) {
 
       // add to cache at this point then?
       return fetch(event.request);
-    });
+    })
   );
 });
 
