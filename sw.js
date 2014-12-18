@@ -36,6 +36,8 @@ this.addEventListener('fetch', function(event) {
         return response;
       }
 
+      console.log(event);
+
       return fetch(event.request);
     });
   );
