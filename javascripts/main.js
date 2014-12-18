@@ -1,1 +1,4 @@
-console.log('This would be the main JS file.');
+
+$(document).on('click', '.alert-button', function(){
+  alert('this is called via javascript!');
+});
