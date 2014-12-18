@@ -40,7 +40,8 @@ self.addEventListener('activate', function(event) {
 
 //after service worker is installed, we can fetch our cached assets
 self.addEventListener('fetch', function(event) {
-  console.log('fetch event!', event)
+  console.log('fetch event!')
+  console.log(event);
   event.respondWith( 
     caches.match(event.request).then(function(response) {
       if (response) return response;
