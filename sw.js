@@ -30,6 +30,7 @@ this.addEventListener('install', function(event) {
  //////after service worker is installed, we can fetch our cached assets
 this.addEventListener('fetch', function(event) {
   var requestUrl = new URL(event.request.url);
+  console.log(requestUrl.pathname)
 
   if (requestUrl.pathname != '/service-worker-demo/v1/test') return;
 
