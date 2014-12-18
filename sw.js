@@ -1,6 +1,7 @@
 
 // imports scripts locally or even from other sources
 importScripts('./javascripts/cache-polyfill');
+console.log('starting service worker!')
 
 
 // these are pages we are going to cache, so they can work offline
@@ -16,6 +17,7 @@ var CACHE_NAME = 'my-site-cache-v1';
 
 // this is called during the install 
 this.addEventListener('install', function(event) {
+  console.log('installing phase!!')
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
@@ -29,6 +31,7 @@ this.addEventListener('install', function(event) {
 
  //after service worker is installed, we can fetch our cached assets
 this.addEventListener('fetch', function(event) {
+  console.log('fetch phase!!')
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
