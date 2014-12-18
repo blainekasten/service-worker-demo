@@ -17,32 +17,32 @@ var CACHE_NAME = 'my-site-cache-v1';
 
 
 //// this is called during the install 
-this.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-  );
-});
+//this.addEventListener('install', function(event) {
+  //event.waitUntil(
+    //caches.open(CACHE_NAME)
+      //.then(function(cache) {
+        //console.log('Opened cache');
+        //return cache.addAll(urlsToCache);
+      //})
+  //);
+//});
 
 
 
- ////after service worker is installed, we can fetch our cached assets
-this.addEventListener('fetch', function(event) {
-  event.respondWith(
-    console.log('fetch responses!!!!')
-    caches.match(event.request).then(function(response) {
-      // Cache hit - return response
-      if (response) {
-        return response;
-      }
+ //////after service worker is installed, we can fetch our cached assets
+//this.addEventListener('fetch', function(event) {
+  //event.respondWith(
+    //console.log('fetch responses!!!!')
+    //caches.match(event.request).then(function(response) {
+      //// Cache hit - return response
+      //if (response) {
+        //return response;
+      //}
 
-      console.log(response);
+      //console.log(response);
 
-      return fetch(event.request);
-    });
-  );
-});
+      //return fetch(event.request);
+    //});
+  //);
+//});
 
