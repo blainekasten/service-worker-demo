@@ -1,19 +1,9 @@
 console.log('starting service worker!');
 // imports scripts locally or even from other sources
 importScripts('./javascripts/cache-polyfill.js');
-console.log('imported cache')
 
 
-////// these are pages we are going to cache, so they can work offline
-var urlsToCache = [
-  './index.html',
-  './stylesheets/stylesheet.css',
-  './stylesheets/pygment_trac.css',
-  './stylesheets/service-worker-style.css',
-  './javascripts/main.js'
-];
-
-var CACHE_NAME = 'my-site-cache-v3';
+var CACHE_NAME = 'v1';
 
 // this is called during the install 
 this.addEventListener('install', function(event) {
@@ -34,12 +24,7 @@ this.addEventListener('install', function(event) {
 
 //after service worker is installed, we can fetch our cached assets
 this.addEventListener('fetch', function(event) {
-  console.log(event);
-
-  event.respondWith( new Response("well crap") )
-    //caches.match(event.request).catch(function(){
-      //return new Response("well crap");
-    //});
-  //);
-
+  event.respondWith( caches.match(event.request) )
 });
+
+console.log('service worker finished')
