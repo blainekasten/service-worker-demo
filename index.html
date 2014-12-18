@@ -34,13 +34,14 @@
           </h3>
 
           <p>This site's goal is to be a working demo of what can be done with service worker. </p>
-          <div class='cache-informant'></div>
-        </section>
 
+          <button class='test'>Test if we're running off of service worker</button>
+          <!--<div class='cache-informant'></div>-->
+        </section>
       </div>
     </div>
 
-  
+
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker-demo/sw.js', {
@@ -51,6 +52,19 @@
           console.log('Boo!', err);
         });
       }
+
+      $('button').click(function(){
+        $.ajax({
+          url: 'service-worker-demo/v1/test',
+          type: 'GET'
+          success: function(e){
+            console.log('service worker response: ', e);
+          },
+          error: function(e) {
+            console.log('something failed..', e);
+          }
+        })
+      });
     </script>
 
   </body>
