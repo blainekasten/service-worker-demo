@@ -10,15 +10,15 @@ var CACHE_VERSION = 1;
 var CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 
 var URLS_TO_CACHE = [
-  '/service-worker-demo/dist/0.1.4/all.min.css',
-  '/service-worker-demo/dist/0.1.4/global.min.js',
-  '/service-worker-demo/img/offline-meme.jpg',
-  '/service-worker-demo/favicon.ico',
-  '/service-worker-demo/about',
-  '/service-worker-demo/offline',
-  '/service-worker-demo/conduct',
-  '/service-worker-demo/presenters',
-  '/service-worker-demo/'
+  '/dist/0.1.4/all.min.css',
+  '/dist/0.1.4/global.min.js',
+  '/img/offline-meme.jpg',
+  '/favicon.ico',
+  '/about',
+  '/offline',
+  '/conduct',
+  '/presenters',
+  '/'
 ];
 
 
