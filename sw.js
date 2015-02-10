@@ -10,15 +10,15 @@ var CACHE_VERSION = 1;
 var CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 
 var URLS_TO_CACHE = [
-  '/css/all.css',
-  '/js/global.js',
-  '/img/offline-meme.jpg',
-  '/favicon.ico',
-  '/about/index.html',
-  '/offline/iframe.html',
-  '/conduct/index.html',
-  '/presenters/index.html',
-  '/index.html'
+  //'/css/global.css',
+  //'/js/global.js',
+  //'/img/offline-meme.jpg',
+  //'/about/index.html',
+  //'/offline/iframe.html',
+  //'/conduct/index.html',
+  //'/presenters/index.html',
+  '/index.html',
+  '/favicon.ico'
 ];
 
 
