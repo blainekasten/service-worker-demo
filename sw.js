@@ -6,7 +6,7 @@
 importScripts('./js/cache-polyfill.js');
 
 var CACHE_PREFIX = 'nejs_';
-var CACHE_VERSION = 2;
+var CACHE_VERSION = 3;
 var CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 
 var URLS_TO_CACHE = [
