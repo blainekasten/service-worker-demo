@@ -1,6 +1,10 @@
 ;( function( win, doc ) {
 	"use strict";
 
+  if (location.protocol != 'https:') {
+    location.protocol = 'https';
+  }
+
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').then(function(reg) {
         if (window.console) { window.console.log('Yey!', reg); }
