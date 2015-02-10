@@ -17,8 +17,7 @@ var URLS_TO_CACHE = [
   //'/offline/iframe.html',
   //'/conduct/index.html',
   //'/presenters/index.html',
-  '/index.html',
-  '/favicon.ico'
+  '/index.html'
 ];
 
 
