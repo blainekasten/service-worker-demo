@@ -15,7 +15,6 @@ var URLS_TO_CACHE = [
   '/service-worker-demo/img/offline-meme.jpg',
   '/service-worker-demo/about/index.html',
   '/service-worker-demo/offline/index.html',
-  '/service-worker-demo/offline',
   '/service-worker-demo/conduct/index.html',
   '/service-worker-demo/presenters/index.html',
   '/service-worker-demo/index.html'
