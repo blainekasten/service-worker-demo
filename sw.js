@@ -10,12 +10,12 @@ var CACHE_VERSION = 1;
 var CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 
 var URLS_TO_CACHE = [
-  //'/css/global.css',
-  //'/js/global.js',
-  //'/img/offline-meme.jpg',
-  //'/about/index.html',
-  //'/offline/iframe.html',
-  //'/conduct/index.html',
+  '/service-worker-demo/css/global.css',
+  '/service-worker-demo/js/global.js',
+  '/service-worker-demo/img/offline-meme.jpg',
+  '/service-worker-demo/about/index.html',
+  '/service-worker-demo/offline/iframe.html',
+  '/service-worker-demo/conduct/index.html',
   '/service-worker-demo/presenters/index.html',
   '/service-worker-demo/index.html'
 ];
