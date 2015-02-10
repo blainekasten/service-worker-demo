@@ -70,7 +70,6 @@ self.addEventListener('fetch', function(event) {
       var fetchRequest = event.request.clone();
 
       return fetch(fetchRequest).then(
-        debugger;
 
         // when we get the response from the network
         // cache it
