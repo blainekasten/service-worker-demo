@@ -38,5 +38,16 @@
 
 
     <script src="/service-worker-demo/js/global.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker-demo/sw.js', {
+          scope: ''
+        }).then(function(reg) {
+          console.log('Yey!', reg);
+        }).catch(function(err) {
+          console.log('Boo!', err);
+        });
+      }
+    </script>
   </body>
 </html>
