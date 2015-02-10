@@ -6,7 +6,7 @@
   }
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').then(function(reg) {
+    navigator.serviceWorker.register('/service-worker-demo/sw.js', {scope: ''}).then(function(reg) {
         if (window.console) { window.console.log('Yey!', reg); }
       })['catch'](function(err) {
         if (window.console) { window.console.log('Boo!', err); }
